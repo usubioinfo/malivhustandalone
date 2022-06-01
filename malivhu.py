@@ -120,10 +120,10 @@ if phase1:
             count += 1
     X = np.array(X).astype(np.float32)
 
-    scaler = joblib.load("scaler1.pkl")
+    scaler = joblib.load("models/scaler1.pkl")
     X = scaler.transform(X)
 
-    model = tf.keras.models.load_model("Phase1.h5")
+    model = tf.keras.models.load_model("models/Phase1.h5")
     X = tf.convert_to_tensor(X)
     X = tf.expand_dims(X, axis=-1)
     y_pred = model.predict(X)
@@ -160,9 +160,9 @@ if phase2:
                 X.append(splits)
             line = f.readline()
     X = np.array(X).astype(np.float32)
-    scaler = joblib.load("scaler2.pkl")
+    scaler = joblib.load("models/scaler2.pkl")
     X = scaler.transform(X)
-    model = tf.keras.models.load_model("Phase2.h5")
+    model = tf.keras.models.load_model("models/Phase2.h5")
     X = tf.convert_to_tensor(X)
     X = tf.expand_dims(X, axis=-1)
     y_pred = model.predict(X)
@@ -200,10 +200,10 @@ if phase3:
             line = f.readline()
 
     X = np.array(X).astype(np.float32)
-    scaler = joblib.load("scaler3.pkl")
+    scaler = joblib.load("models/scaler3.pkl")
     X = scaler.transform(X)
 
-    model = tf.keras.models.load_model("Phase3.h5")
+    model = tf.keras.models.load_model("models/Phase3.h5")
     X = tf.convert_to_tensor(X)
     X = tf.expand_dims(X, axis=-1)
     y_pred = model.predict(X)
@@ -298,7 +298,7 @@ if phase4:
                         line = f.readline()
             
             X = np.array(X).astype(np.float32)
-            model = joblib.load("CoV1.pkl")
+            model = joblib.load("models/CoV1.pkl")
             y_pred = model.predict_proba(X)
             with open(folder + "/phase4.out", "a") as f:
                 f.write("PROTEIN\tNEGATIVE\tPOSITIVE\n")
@@ -339,9 +339,9 @@ if phase4:
                         X.append(Xpair)
                         line = f.readline()
             X = np.array(X).astype(np.float32)
-            scaler = joblib.load("scalerCoV2.pkl")
+            scaler = joblib.load("models/scalerCoV2.pkl")
             X = scaler.transform(X)
-            model = tf.keras.models.load_model("CoV2.h5")
+            model = tf.keras.models.load_model("models/CoV2.h5")
             X = tf.convert_to_tensor(X)
             X = tf.expand_dims(X, axis=-1)
             y_pred = model.predict(X)
@@ -384,7 +384,7 @@ if phase4:
                         X.append(Xpair)
                         line = f.readline()
             X = np.array(X).astype(np.float32)
-            model = joblib.load("MERS.pkl")
+            model = joblib.load("models/MERS.pkl")
             y_pred = model.predict_proba(X)
             with open(folder + "/phase4.out", "a") as f:
                 f.write("PROTEIN\tNEGATIVE\tPOSITIVE\n")
@@ -422,7 +422,7 @@ if phase4:
                     X.append(Xpair)
                     line = f.readline()
         X = np.array(X).astype(np.float32)
-        model = joblib.load("CoV1.pkl")
+        model = joblib.load("models/CoV1.pkl")
         y_pred = model.predict_proba(X)
         with open(folder + "/phase4.out", "a") as f:
             f.write("PROTEIN\tNEGATIVE\tPOSITIVE\n")
@@ -460,9 +460,9 @@ if phase4:
                     X.append(Xpair)
                     line = f.readline()
         X = np.array(X).astype(np.float32)
-        scaler = joblib.load("scalerCoV2.pkl")
+        scaler = joblib.load("models/scalerCoV2.pkl")
         X = scaler.transform(X)
-        model = tf.keras.models.load_model("CoV2.h5")
+        model = tf.keras.models.load_model("models/CoV2.h5")
         X = tf.convert_to_tensor(X)
         X = tf.expand_dims(X, axis=-1)
         y_pred = model.predict(X)
@@ -502,7 +502,7 @@ if phase4:
                     X.append(Xpair)
                     line = f.readline()
         X = np.array(X).astype(np.float32)
-        model = joblib.load("MERS.pkl")
+        model = joblib.load("models/MERS.pkl")
         y_pred = model.predict_proba(X)
         with open(folder + "phase4.out", "a") as f:
             f.write("PROTEIN\tNEGATIVE\tPOSITIVE\n")
