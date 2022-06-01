@@ -1,2 +1,2 @@
-# malivhustandalone
-Standalone version for Malivhu
+# Malivhu - Standalone version
+
