@@ -45,7 +45,7 @@ import joblib
 import re
 import numpy as np
 import tensorflow as tf
-from Bio import SeqIO, Entrez
+from Bio import SeqIO
 
 def execCmd(cmd, type):
     cmdList = cmd.split(" ")
