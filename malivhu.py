@@ -30,14 +30,16 @@ phase4 = True if args.phases == 4 else False
 
 if phase4:
     if args.input_human == None:
-        parser.error('--input_human (-ih) is required when phase 4 is set to be executed.')
-    if args.virus == None:
-        parser.error('--virus (-v) is required when phase 4 is set to be executed.')
+        parser.error("--input_human (-ih) is required when phase 4 is set to be executed.")
 
 if args.phase4only and phase4:
     phase1 = False
     phase2 = False
     phase3 = False
+    if args.virus == None:
+        parser.error("--virus (-v) is required when phase 4 is set to be executed alone.")
+    if args.virus not in ['cov1', 'cov2', 'mers']:
+        parser.error("--virus (-v) accepted values are 'cov1', 'cov2' and 'mers'.")
 
 import os
 import subprocess
